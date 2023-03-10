@@ -48,7 +48,7 @@ jobs:
       - name: Build
         run: |
           cd /home/runner/android-kernel
-          ./build_redbull-gki.sh
+          ./build_crosshatch-gki.sh
           
       - name: Upload kernel
         if: success()
