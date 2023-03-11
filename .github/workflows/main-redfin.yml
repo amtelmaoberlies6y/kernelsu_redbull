@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: build_kernelsu_for_crosshatch
+name: build_kernelsu_for_redfin
 
 # Controls when the workflow will run
 on:
@@ -30,7 +30,7 @@ jobs:
           git clone https://github.com/CZB666-wdnmd/kernelsu_redbull
           mkdir android-kernel && cd android-kernel
           echo 'pulling kernel source'
-          repo init -u https://android.googlesource.com/kernel/manifest -b android-msm-crosshatch-4.9-android10-qpr3
+          repo init -u https://android.googlesource.com/kernel/manifest -b android-msm-redfin-4.19-android11-qpr1
           repo sync
           cd private/msm-google
           echo 'cloning kernelsu'
@@ -48,7 +48,7 @@ jobs:
       - name: Build
         run: |
           cd /home/runner/android-kernel
-          ./build_crosshatch-gki.sh
+          ./build_redbull-gki.sh
           
       - name: Upload kernel
         if: success()
